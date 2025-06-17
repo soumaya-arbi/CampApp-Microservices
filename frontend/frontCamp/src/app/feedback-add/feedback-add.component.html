@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="header">
+      <app-header></app-header>
+    </div>
+    <div class="content">
+      <div class="side-nav">
+        <app-sidenav></app-sidenav>
+      </div>
+      <div class="container1">
+  <h2>Ajouter un Feedback</h2>
+  <form (ngSubmit)="addFeedback()">
+    <div class="form-group">
+      <label for="commentaire">Commentaire :</label>
+      <textarea id="commentaire" class="form-control" [(ngModel)]="newFeedback.commentaire" name="commentaire" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>Noter :</label>
+      <div class="rating">
+        <span class="star" (click)="setRating(1)" [class.filled]="newFeedback.note >= 1">&#9733;</span>
+        <span class="star" (click)="setRating(2)" [class.filled]="newFeedback.note >= 2">&#9733;</span>
+        <span class="star" (click)="setRating(3)" [class.filled]="newFeedback.note >= 3">&#9733;</span>
+        <span class="star" (click)="setRating(4)" [class.filled]="newFeedback.note >= 4">&#9733;</span>
+        <span class="star" (click)="setRating(5)" [class.filled]="newFeedback.note >= 5">&#9733;</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter Feedback</button>
+  </form>
+</div>
+</div>

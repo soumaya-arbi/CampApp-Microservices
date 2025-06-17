@@ -1,0 +1,107 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css"
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<div class="header">
+  <app-header></app-header>
+</div>
+<div class="content">
+  <div class="side-nav">
+    <app-sidenav-responsable></app-sidenav-responsable>
+  </div>
+
+  <div class="main">
+    <div class="cardBox">
+      <div class="card">
+        <div>
+          <div class="numbers">{{ centresCount }}</div>
+          <div class="cardName"><a routerLink="/centre">Ajouter votre centre</a></div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-map-o" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <div class="numbers">80</div>
+          <div class="cardName">Hébergements</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-bed" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <div class="numbers">672</div>
+          <div class="cardName">Equipements</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-gavel" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="details">
+      <div class="recentOrders">
+        <div class="cardHeader">
+          <h2>Vos Centres</h2>
+          <a href="#" class="btn">Gestion des centres</a>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <td>Nom du centre</td>
+              <td>Lieu</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let centre of centresDeCamping" (click)="loadStatisticsForCentres()">
+              <td>{{ centre.nom }}</td>
+              <td>{{ centre.lieu }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="recentCustomers">
+        <div class="cardHeader">
+          <h2>Statistiques</h2>
+        </div>
+      <div class="chart-container">
+          <div class="bar-chart">
+            <div class="bar" *ngFor="let centre of centresDeCamping; let i = index" [style.height.%]="(statistics[centre.idCentre]?.reservations || 0) * 2" [style.backgroundColor]="generateColor(centre.idCentre)">
+              <span class="bar-label">{{ centre.nom }}</span>
+              <span class="reservation-count">{{ statistics[centre.idCentre]?.reservations || 0 }}</span>
+            </div>
+          </div>
+          <ul class="legend">
+            <li *ngFor="let centre of centresDeCamping; let i = index" class="legend-item">
+              <div [style.background-color]="generateColor(centre.idCentre)"></div>
+              {{ centre.nom }} - {{ (statistics[centre.idCentre]?.reservations || 0) }} réservations
+            </li>
+          </ul>
+        </div><br>
+        <div class="statistics-table">
+        <table>
+          <thead>
+            <tr>
+              <td>Nom du centre</td>
+              <td>Réservations</td>
+              <td>Feedbacks</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let centre of centresDeCamping">
+              <td>{{ centre.nom }}</td>
+              <td>{{ statistics[centre.idCentre]?.reservations || 0 }}</td>
+              <td>{{ statistics[centre.idCentre]?.feedbacks || 0 }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>

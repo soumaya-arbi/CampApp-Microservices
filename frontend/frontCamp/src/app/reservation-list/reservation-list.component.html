@@ -1,0 +1,41 @@
+<div class="header">
+  <app-header></app-header>
+</div>
+<div class="content">
+  <div class="side-nav">
+    <app-sidenav-responsable></app-sidenav-responsable>
+  </div>
+  <div class="main">
+    <div class="details">
+      <div class="recentOrders">
+        <div class="cardHeader">
+          <h2>Liste des Réservations</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Date d'arrivée</th>
+                <th>Date de sortie</th>
+                <th>Nombre de personnes</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let reservation of reservations">
+                <td>{{ reservation.dateArrivee | date:'shortDate' }}</td>
+                <td>{{ reservation.dateSortie | date:'shortDate' }}</td>
+                <td>{{ reservation.nbrPersonne }}</td>
+                <td>{{ reservation.status }}</td>
+                
+                <td>
+                  <button class="btn-modifier" (click)="acceptReservation(reservation.idReservation)">Accepter</button>
+                  <button class="btn-supprimer" (click)="rejectReservation(reservation.idReservation)">Refuser</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

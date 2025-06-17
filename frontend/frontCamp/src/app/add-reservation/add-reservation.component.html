@@ -1,0 +1,83 @@
+<div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="content">
+    <div class="side-nav">
+      <app-sidenav></app-sidenav>
+    </div>
+    <div class="main">   
+<div class="container">
+  <div class="wrapper-progress">
+  <ol class="progtrckr" data-progtrckr-steps="4">
+    <li [class.progtrckr-done]="step >= 1" [class.progtrckr-todo]="step < 1">Choisir le lieu</li>
+    <li [class.progtrckr-done]="step >= 2" [class.progtrckr-todo]="step < 2">Choisir votre centre</li>
+    <li [class.progtrckr-done]="step >= 3" [class.progtrckr-todo]="step < 3">Choisir vos équipements</li>
+    <li [class.progtrckr-done]="step >= 4" [class.progtrckr-todo]="step < 4">Finaliser la réservation</li>
+  </ol>
+ 
+  <div class="form-container">
+    <form #reservationForm="ngForm" (ngSubmit)="submitReservation()">
+      <div *ngIf="step === 1">
+        <h4>Choisir le lieu</h4>
+        <div class="input-group input-group-icon">
+          <select class="custom-select" name="location" [(ngModel)]="selectedLocation" (change)="loadCentresByLocation()" required>
+            <option value="" disabled selected>Choisir le lieu</option>
+            <option *ngFor="let location of availableLocations" [value]="location">{{ location }}</option>
+          </select>
+        </div>
+         <div class="button-group">
+        <button class="btn btn-primary" type="button" (click)="nextStep()">Suivant</button>
+      </div>
+</div>
+      <div *ngIf="step === 2">
+        <h4>Choisir votre centre de camping</h4>
+        <div class="input-group input-group-icon">
+          <select class="custom-select" name="centre" [(ngModel)]="selectedCentre" (change)="loadAccommodationsByCentre()" required>
+            <option value="" disabled selected>Choisir votre centre</option>
+            <option *ngFor="let centre of availableCentres" [ngValue]="centre">{{ centre.nom }}</option>
+          </select>
+        </div>
+         <div class="button-group">
+        <button class="btn btn-secondary" type="button" (click)="previousStep()">Retour</button>
+        <button class="btn btn-primary" type="button" (click)="nextStep()">Suivant</button>
+      </div>
+</div>
+      <div *ngIf="step === 3">
+        <h4>Choisir vos équipements et hébergements</h4>
+        
+        <div class="input-group input-group-icon">
+           <h6>Hebergements</h6>
+          <select class="custom-select" name="accommodation" [(ngModel)]="selectedAccommodation" required>
+            <option value="" disabled selected>Choisir le type d'hébergement</option>
+            <option *ngFor="let accommodation of availableAccommodations" [ngValue]="accommodation">{{ accommodation.nom }} Prix: {{ accommodation.prix }} Capacité:{{ accommodation.capacite }}</option>
+          </select>
+        </div>
+        <div class="button-group">
+        <button class="btn btn-secondary" type="button" (click)="previousStep()">Retour</button>
+        <button class="btn btn-primary" type="button" (click)="nextStep()">Suivant</button>
+      </div>
+</div>
+      <div *ngIf="step === 4">
+        <h4>Finaliser la réservation</h4>
+ <div class="input-group input-group-icon">
+          <h6>Nombre de personne</h6>
+          <input type="number" name="nbrPersonne" [(ngModel)]="nbrPersonne" required />
+        </div>
+        <div class="input-group input-group-icon">
+          <h6>Date d'arrivée</h6>
+          <input type="date" name="arrivalDate" [(ngModel)]="arrivalDate" required />
+        </div>
+        <div class="input-group input-group-icon">
+          <h6>Date de sortie</h6>
+          <input type="date" name="departureDate" [(ngModel)]="departureDate" required />
+        </div>
+        <div class="button-group">
+          <button class="btn btn-secondary" type="button" (click)="previousStep()">Retour</button>
+          <button class="btn btn-primary" type="submit">Confirmer la réservation</button>
+        </div>
+        
+      </div>
+    </form>
+  </div> 
+  </div>
+</div>

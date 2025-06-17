@@ -1,0 +1,34 @@
+<div>
+    <h2>Liste des réclamations</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sujet</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reclamation of reclamations">
+          <td>{{ reclamation.sujet }}</td>
+          <td>{{ reclamation.description }}</td>
+          <td>
+            <button (click)="replyToReclamation(reclamation)" class="btn btn-primary">Répondre</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="showReplyForm">
+    <h2>Répondre à la réclamation</h2>
+    <form [formGroup]="reponseForm" (ngSubmit)="submitReply()">
+      <div class="form-group">
+        <label for="contenu">Contenu de la réponse :</label>
+        <textarea id="contenu" formControlName="contenu" class="form-control" rows="4" cols="50"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+      <button type="button" class="btn btn-secondary" (click)="closeReplyForm()">Annuler</button>
+    </form>
+  </div>
+  

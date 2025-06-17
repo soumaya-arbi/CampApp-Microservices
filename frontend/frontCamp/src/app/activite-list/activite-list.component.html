@@ -1,0 +1,40 @@
+<!-- activite-list.component.html -->
+<h1>Liste des Activités</h1>
+
+<div *ngFor="let activite of activites" class="activite">
+  
+  <div class="activite-details">
+    <p>Nom: {{ activite.nom }}</p>
+    <p>Tarif: {{ activite.tarif }}</p>
+    <p>Nombre de personnes: {{ activite.nbrPersonne }}</p>
+    <p>Description: {{ activite.description }}</p>
+    <p>Statut : {{activite.statut}}</p>
+  
+    <button class="edit-button" >Reserver</button>
+  </div>
+</div>
+
+
+<div *ngIf="editMode" class="edit-form">
+  <h2>Modifier l'Activité</h2>
+  <form (ngSubmit)="updateActivite()">
+    <label>
+      Nom:
+      <input [(ngModel)]="editNom" name="nom" required>
+    </label>
+    <label>
+      Tarif:
+      <input type="number" [(ngModel)]="editTarif" name="tarif" required>
+    </label>
+    <label>
+      Nombre de personnes:
+      <input type="number" [(ngModel)]="editNbrPersonne" name="nbrPersonne" required>
+    </label>
+    <label>
+      Description:
+      <textarea [(ngModel)]="editDescription" name="description" required></textarea>
+    </label>
+    <button type="submit">Enregistrer</button>
+    <button type="button" (click)="cancelEdit()">Annuler</button>
+  </form>
+</div>

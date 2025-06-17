@@ -1,0 +1,52 @@
+.activite {
+  width: 300px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  display: inline-block;
+}
+
+.activite-image {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.activite-details {
+  padding-top: 10px;
+}
+
+.delete-button {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #cc4c37;
+}
+
+.edit-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px; /* To add some space between delete and edit button */
+}
+
+.edit-button:hover {
+  background-color: #218838;
+}
+
+h1 {
+  color: #333; /* Couleur du texte */
+  text-align: center; /* Centrer le texte */
+  margin-bottom: 20px; /* Marge en bas pour séparer du contenu suivant */
+}

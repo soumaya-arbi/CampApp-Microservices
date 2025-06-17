@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="header">
+      <app-header></app-header>
+    </div>
+    <div class="content">
+      <div class="side-nav">
+        <app-sidenav></app-sidenav>
+      </div>
+      <div class="main">
+  <h2>Mes Feedbacks</h2>
+
+  <div *ngIf="feedbacks.length === 0" class="alert alert-info">
+    Aucun feedback trouvé.
+  </div>
+
+  <div *ngFor="let feedback of feedbacks" class="card mb-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8">
+          <p class="card-text">{{ feedback.commentaire }}</p>
+          <p class="card-text">Note : {{ feedback.note }}</p>
+        </div>
+        <div class="col-md-4 text-right">
+          <button class="btn btn-danger" (click)="deleteFeedback(feedback.idFeedback)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

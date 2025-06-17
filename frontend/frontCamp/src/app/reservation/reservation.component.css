@@ -1,0 +1,195 @@
+.reservation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit-button, .cancel-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+}
+
+.reservation-title {
+  font-size: 24px;
+  color: #333;
+}
+.reservation-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reservation-table th, .reservation-table td {
+  border: 1px solid black; /* Ajoute une bordure d'un pixel entre les cellules */
+  padding: 8px; /* Ajoute un espace autour du contenu de chaque cellule */
+ text-align: center;
+}
+
+.reservation-table th {
+  background-color: #f2f2f2; /* Couleur de fond pour les en-têtes de colonne */
+}
+.modal-open {
+  display: none;
+}
+
+.header {
+    height: 70px;
+    background-color: #f0f0f0;
+    /* Ajoutez d'autres styles au besoin */
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+  }
+  
+  .side-nav {
+    width: 350px;
+    min-width: 230px;
+    min-height: calc(100vh - 60px);
+    background-color: #113c60;
+    color: #fff;
+    box-shadow: 5px 5px 5px #939393;
+  }
+  
+  .main {
+       margin-left: 20px;
+    flex: 1;
+    padding: 30px;
+  }
+  .notification {
+  display: none; /* Masqué par défaut */
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.notification.success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.notification.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.notification.show {
+  display: block; /* Afficher lorsque la classe 'show' est ajoutée */
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination button[disabled] {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+.status-pending {
+  color: orange;
+}
+
+.status-accepted {
+  color: green;
+}
+
+.status-rejected {
+  color: red;
+}
+
+.status-annulée{
+  color: gray;
+}
+.badge {
+  font-size: 0.9em;
+  font-weight: normal;
+  padding: 0.5em 0.75em;
+  border-radius: 0.25rem;
+}
+
+.badge-pending {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.badge-accepted {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.badge-rejected {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.badge-annulée {
+  background-color: #6c757d;
+  color: #fff;
+}
+.status-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.circle-pending {
+  background-color: #ffc107;
+}
+
+.circle-accepted {
+  background-color: #28a745;
+}
+
+.circle-rejected {
+  background-color: #dc3545;
+}
+
+.circle-annulée{
+  background-color: #6c757d;
+}
+
+

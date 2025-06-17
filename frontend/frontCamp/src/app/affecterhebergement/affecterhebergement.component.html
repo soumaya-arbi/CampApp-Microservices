@@ -1,0 +1,68 @@
+<div class="header">
+  <app-header></app-header>
+</div>
+
+<div class="content">
+  <div class="side-nav">
+    <app-sidenav-responsable></app-sidenav-responsable>
+  </div>
+
+  <div class="border-box">
+    <h2>Affecter l'Hebergement au centre n° {{centreId}}</h2>
+    <!-- Formulaire pour ajouter un hébergement -->
+    <form (ngSubmit)="onSubmit()" #hebergementForm="ngForm">
+      <div class="input-flex">
+        <label class="flex-label" for="nom-input">Nom de l'hébergement:</label>
+        <div class="flex-input">
+          <div class="border-a bg-border-a border-a-text-number">
+            <div class="border-b bg-border-b border-b-text-number"></div>
+            <input type="text" id="nom-input" class="input-text-number" maxlength="45" [(ngModel)]="hebergement.nom" name="nom" required>
+            <div class="border-g bg-border-g border-g-text-number"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-flex">
+        <label for="capacite-input" class="flex-label">Capacité:</label>
+        <div class="flex-input">
+          <div class="border-a bg-border-a border-a-text-number">
+            <div class="border-b bg-border-b border-b-text-number"></div>
+            <input type="number" id="capacite-input" class="input-text-number" [(ngModel)]="hebergement.capacite" name="capacite" required>
+            <div class="border-g bg-border-g border-g-text-number"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-flex">
+        <label for="prix-input" class="flex-label">Prix:</label>
+        <div class="flex-input">
+          <div class="border-a bg-border-a border-a-text-number">
+            <div class="border-b bg-border-b border-b-text-number"></div>
+            <input type="number" id="prix-input" class="input-text-number" [(ngModel)]="hebergement.prix" name="prix" required>
+            <div class="border-g bg-border-g border-g-text-number"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-flex">
+        <label for="description-input" class="flex-label">Description:</label>
+        <div class="flex-input">
+          <div class="border-a bg-border-a border-a-text-number">
+            <div class="border-b bg-border-b border-b-text-number"></div>
+            <textarea id="description-input" class="input-text-number" [(ngModel)]="hebergement.description" name="description" required></textarea>
+            <div class="border-g bg-border-g border-g-text-number"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-flex-center">
+        <div class="border-a bg-border-a border-a-button-ok">
+          <div class="border-b bg-border-b border-b-button-ok"></div>
+          <button type="submit" class="button-ok">Ajouter</button>
+          <div class="border-g bg-border-g border-g-button-ok"></div>
+        </div>
+      </div>
+     
+    </form>
+  </div>
+</div>

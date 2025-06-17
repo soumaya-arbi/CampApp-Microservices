@@ -1,0 +1,25 @@
+<div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="content">
+    <div class="side-nav">
+      <app-sidenav></app-sidenav>
+    </div>
+    
+<div class="container">
+    <h2 class="page-title">Modifier les dates de votre réservation</h2>
+<form #reservationForm="ngForm" (ngSubmit)="submitReservation()">
+  <div class="input-group input-group-icon">
+    <label for="arrivalDate">Date d'arrivée:</label>
+    <input type="date" id="arrivalDate" [(ngModel)]="arrivalDate" name="arrivalDate" required>
+  </div>
+  <div class="input-group input-group-icon" >
+    <label for="departureDate">Date de départ:</label>
+    <input type="date" id="departureDate" [(ngModel)]="departureDate" name="departureDate" required>
+  </div>
+  <div class="button-group">
+    <button type="submit" class="btn-primary">Modifier la réservation</button>
+   
+  </div>
+</form>
+</div>

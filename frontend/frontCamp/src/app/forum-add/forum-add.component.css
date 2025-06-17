@@ -1,0 +1,57 @@
+/* Styles pour le formulaire d'ajout de forum avec un thème de camping */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Couleur de fond du formulaire */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  }
+  
+  h1 {
+    color: #2c3e50; /* Couleur du titre principal */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50; /* Couleur du texte des labels */
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  textarea {
+    min-height: 150px; /* Hauteur minimale pour la zone de texte */
+  }
+  
+  input[type="text"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #3498db; /* Couleur de la bordure au focus */
+  }
+  
+  button[type="submit"] {
+    background-color: #27ae60; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #219a52; /* Couleur de fond du bouton au survol */
+  }
+  

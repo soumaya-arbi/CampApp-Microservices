@@ -1,0 +1,46 @@
+
+ <div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="content">
+    <div class="side-nav">
+      <app-sidenav-responsable></app-sidenav-responsable>
+    </div>
+<form [formGroup]="activiteForm"  class="activite-form">
+  <h1 class="form-title">Ajouter Activité</h1>
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <input id="nom" formControlName="nom" type="text" class="form-input" />
+    <div *ngIf="activiteForm.get('nom')?.invalid && activiteForm.get('nom')?.touched" class="form-error">
+      Le nom est requis.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="tarif">Tarif</label>
+    <input id="tarif" formControlName="tarif" type="number" class="form-input" />
+    <div *ngIf="activiteForm.get('tarif')?.invalid && activiteForm.get('tarif')?.touched" class="form-error">
+      Le tarif est requis.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="nbrPersonne">Nombre de personnes</label>
+    <input id="nbrPersonne" formControlName="nbrPersonne" type="number" class="form-input" />
+    <div *ngIf="activiteForm.get('nbrPersonne')?.invalid && activiteForm.get('nbrPersonne')?.touched" class="form-error">
+      Le nombre de personnes est requis.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" class="form-textarea"></textarea>
+    <div *ngIf="activiteForm.get('description')?.invalid && activiteForm.get('description')?.touched" class="form-error">
+      La description est requise.
+    </div>
+  </div>
+
+  
+
+  <button type="submit" [disabled]="activiteForm.invalid" onclick="addact()" class="form-button">Ajouter Activité</button>
+</form>
