@@ -1,0 +1,7 @@
+com\example\camapp\entities\Forum.class
+com\example\camapp\controllers\ForumController.class
+com\example\camapp\aop\CorsConfig.class
+com\example\camapp\CampAppApplication.class
+com\example\camapp\repositories\ForumRepository.class
+com\example\camapp\services\ForumServiceImpl.class
+com\example\camapp\services\IForumService.class
