@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API Gateway</title>
+</head>
+<body>
+    <h1>Test API Gateway - Service Réclamation</h1>
+    
+    <h2>Test GET</h2>
+    <button onclick="testGet()">GET /api/reclamations</button>
+    <div id="getResult"></div>
+    
+    <h2>Test POST</h2>
+    <button onclick="testPost()">POST /api/reclamations</button>
+    <div id="postResult"></div>
+    
+    <script>
+        function testGet() {
+            fetch('http://localhost:8089/api/reclamations')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('getResult').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                })
+                .catch(error => {
+                    document.getElementById('getResult').innerHTML = 'Erreur: ' + error;
+                });
+        }
+        
+        function testPost() {
+            const data = {
+                sujet: "Test POST",
+                description: "Test via API Gateway",
+                userId: 1
+            };
+            
+            fetch('http://localhost:8089/api/reclamations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('postResult').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            })
+            .catch(error => {
+                document.getElementById('postResult').innerHTML = 'Erreur: ' + error;
+            });
+        }
+    </script>
+</body>
+</html> 
